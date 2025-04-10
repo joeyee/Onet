@@ -1,0 +1,97 @@
+#Configuration for published Onet 
+zy3:
+  dataset: "zy3" # name of dataset
+  model_name: 'onet_vanilla_zy3'
+  type: '' # name of backbone ['tiny', small, base, large]
+  pretrained: 'none' # ['imagenet1k', 'imagenet22k', 'none', 'landsat8']
+  epoch_nums: 11 #301 zy3 can be trained with 11 epochs.
+  batch_sz: 5 #5
+  input_sz: 224 # resolution of height and width in square.
+  dataset_root: "/root/datasets/thumbnail224"
+  #out_root: "/root/tip_onet_revision_gz16g/checkpoint/onet_vanilla_unsupervised_snow_feature_alignment/supervised" # model checkpoint directory
+  #out_root: "/root/tip_onet_revision_gz16g/checkpoint/onet_vanilla_unsupervised_snow_feature_alignment/snow_cloud_supervised" # model checkpoint directory
+  out_root: "/root/onet_github/checkpoint/zy3/onet_vanilla"
+  input_chn: 3 # 1 for grayscale, 3 for RGB
+  gt_k: 2 # number of classes
+  aug:      True # whether to use data augmentation
+  restart:  False # whether to restart training from the last checkpoint
+  preload:  True # whether to load the prepared test and train files
+  #test_file:  'zy3_thumbnail224_test_label_dict50.pt' # 224x224x3 for tip_onet2.0, version 2023-12-29
+  #test_file: 'zy3_test_image_crop_dict_3123.pkl' # 224x224x3 for tip_onet2.0, version 2024-01-15
+  # train_file: 'zy3_train_image_crop_dict_14568.pkl'
+  #model_file: '/root/onet_github/checkpoint/zy3/onet_vanilla/onet_vanilla_zy3_epoch300_20250409_12.pytorch'
+  model_file: '/root/onet_github/checkpoint/zy3/onet_vanilla/onet_vanilla_zy3_epoch10_20250410_11.pytorch'
+  #model_file: '/root/tip_onet_revision_gz16g/checkpoint/zy3_onet_vanilla_outc2class_unsupervised/onet_vanilla_20231230_20.pytorch' # select the fg/bg similar features
+  #model_file: '/root/tip_onet_revision_gz16g/checkpoint/select_trainset_supervised/onet_select_trainset_supervised_20240120_13.pytorch'
+  #model_file: '/root/tip_onet_revision_gz16g/checkpoint/onet_vanilla_unsupervised_augmentation/onet_vanilla_unsupervised_on_zy3_acc_0.8812_miou_0.7190_20240126_15.pytorch'
+  #model_file: '/root/tip_onet_revision_gz16g/checkpoint/onet_vanilla_unsupervised_snow_feature_alignment/onet_vanilla_unsupervised_snow_feature_alignment_acc_0.8797_miou_0.7166_20240306_11.pytorch'
+  test_file: 'zy3_thumbnail224_test_label_dict50_v2.pt' # 224x224x3 for tip_onet2.0, version 2023-12-29
+  #test_file: 'zy3_thumbnail224_test_label_dict50_histeq_rgb.pt'
+  #test_file: 'zy3_thumbnail224_test_label_dict50_v3_[haze_remove_enhance].pt' # using haze remove and enhance for test set
+  train_file: 'zy3_thumbnail224_train_dict250_v2.pt'
+  added_cloud_file: 'zy3_train_add_clouds_dict.pt' #clouds addition on bright terrain on 2024/03/05
+  #log_file: '/root/tip_onet2.0_gz16g_202403/checkpoint/pre_process' # checkpoint dir for log name
+  res_excel_file: 'onet_vallina_zy3_result.xlsx' #preprocess_options = ['raw_rgb', 'histeq_rgb', 'constrast_enhance', 'haze_remove', 'haze_enhance']
+Rayleigh:
+  dataset:    "Rayleigh" # name of dataset
+  model_name: 'onet_rayleigh'
+  device:     'cuda:0' # device to use
+  type: ''    # name of backbone ['tiny', small, base, large]
+  pretrained: 'none' # ['imagenet1k', 'imagenet22k', 'none', 'landsat8']
+  epoch_nums: 301 #301
+  batch_sz: 10 #5
+  input_sz: 224 # resolution of height and width in square.
+  dataset_root: "/root/datasets/sim_background/" # data path
+  #out_root: "/root/tip_onet_revision_gz16g/checkpoint/onet_vanilla_unsupervised_snow_feature_alignment/supervised" # model checkpoint directory
+  #out_root: "/root/tip_onet_revision_gz16g/checkpoint/onet_vanilla_unsupervised_snow_feature_alignment/snow_cloud_supervised" # model checkpoint directory
+  #out_root: "/root/tip_onet2.0_202403/checkpoint/onet1.0_renew"
+  out_root: "/root/onet_github/checkpoint/sim_clutter/onet_vallina" # model checkpoint directory
+  input_chn: 1 # 1 for grayscale, 3 for RGB
+  gt_k: 1 # number of classes
+  stage_id: 2 # stage id for the model
+  enc_in_channels: 64 # number of channels in the first encoder layer
+  layer_type: '' # type of layer ['serial', 'parallel', 'unet',none]
+  enc_depth: 1   # number of encoder layers
+  feature_src: 'enc' # source of features ['enc', 'dec']
+  aug:      False #True # whether to use data augmentation
+  use_augmentation: False
+  restart:  False # whether to restart training from the last checkpoint
+  preload:  True  # whether to load the prepared test and train files
+  weight_share: True
+  model_file_supervised: ''
+  #model_file: '/root/tip_onet_revision_gz16g/checkpoint/zy3_onet_vanilla_outc2class_unsupervised/onet_vanilla_20231230_20.pytorch' # select the fg/bg similar features
+  #model_file: '/root/tip_onet_revision_gz16g/checkpoint/select_trainset_supervised/onet_select_trainset_supervised_20240120_13.pytorch'
+  #model_file: '/root/tip_onet_revision_gz16g/checkpoint/onet_vanilla_unsupervised_augmentation/onet_vanilla_unsupervised_on_zy3_acc_0.8812_miou_0.7190_20240126_15.pytorch'
+  #model_file: '/root/tip_onet_revision_gz16g/checkpoint/onet_vanilla_unsupervised_snow_feature_alignment/onet_vanilla_unsupervised_snow_feature_alignment_acc_0.8797_miou_0.7166_20240306_11.pytorch'
+  model_file: '/root/tip_onet2.0_202403/checkpoint/onet1.0_renew/weight_share/onet_weight_share_PSNR0-2_epoch_500_2024_0503_08.pytorch'
+  model_file_onet1st: '/root/tip_onet2.0_202403/checkpoint/tip1.0_model/Onet_simclutter_snr0-2_2023_0516_12.pytorch'
+  model_file_onet2nd: '/root/tip_onet2.0_202403/checkpoint/tip1.0_model/Onet_simclutter_snr5-10_2023_0516_16.pytorch'
+  model_revison_file: '/root/tip_onet2.0_202403/checkpoint/onet1.0_renew/weight_share/onet_weight_share_PSNR0-2_epoch_500_2024_0503_08.pytorch'
+  model_wtshare_1st: '/root/tip_onet2.0_202403/checkpoint/onet1.0_renew/weight_share/onet_weight_share_PSNR0-2_epoch_500_2024_0503_08.pytorch'
+  model_wtshare_2nd: '/root/tip_onet2.0_202403/checkpoint/onet1.0_renew/weight_share/onet_weight_share_PSNR5-10_epoch_500_2024_0503_20.pytorch'
+  data_file_name: 'rayleigh_2sigma.pt'
+
+naurain: # NAU cloud and rain masses
+  dataset: "naurain" # name of dataset
+  model_name: 'Onet_naurain' # name of model
+  epoch_nums: 300
+  batch_sz: 5
+  input_sz: 200 # resolution of height and width in square.
+  dataset_root: "/root/datasets/nau_rain/" # where dataset is stored
+  out_root:     "/root/onet_github/checkpoint/nau_rain"
+  input_chn: 1 # 1 for grayscale, 3 for RGB
+  gt_k: 2 # number of classes
+  aug:      False #True # whether to use data augmentation
+  restart: False # whether to restart training from the last checkpoint
+  preload: True # whether to load the prepared dataset
+  #load_test_file:  'cloud_thumbnail_simclutter_image_labels_512x512.pt'
+  #load_train_file: 'target_subimage_dict_20200819144753_10_frames.pt'
+  load_test_file: 'naurain_20200819144753_10_target_img_label_dict.pt'
+#  model_file_onet1st: '/home/ubuntu/tip2022/checkpoint/naurain/onet/Onet_naurain_2023_0523_17.pytorch'
+#  model_file_onet2nd: '/home/ubuntu/tip2022/checkpoint/naurain/onet'
+  model_file: '/root/onet_github/checkpoint/sim_clutter/onet_vallina/onet_weight_share_PSNR0-2_epoch_300_2025_0407_12.pytorch'
+  model_file_onet1st: '/root/tip_onet2.0_202403/checkpoint/tip1.0_model/Onet_simclutter_snr0-2_2023_0516_12.pytorch'
+  model_file_onet2nd: '/root/tip_onet2.0_202403/checkpoint/tip1.0_model/Onet_simclutter_snr5-10_2023_0516_16.pytorch'
+  model_revison_file: '/root/tip_onet2.0_202403/checkpoint/onet1.0_renew/weight_share/onet_weight_share_PSNR0-2_epoch_500_2024_0503_08.pytorch'
+  model_wtshare_1st: '/root/tip_onet2.0_202403/checkpoint/onet1.0_renew/weight_share/onet_weight_share_PSNR0-2_epoch_500_2024_0503_08.pytorch'
+  model_wtshare_2nd: '/root/tip_onet2.0_202403/checkpoint/onet1.0_renew/weight_share/onet_weight_share_PSNR5-10_epoch_500_2024_0503_20.pytorch'
