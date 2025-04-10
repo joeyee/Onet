@@ -633,8 +633,8 @@ if __name__ == '__main__':
     print('Onet_pid: ', os.getpid())
     print('current w_dir ', os.getcwd())
 
-    test_model_performance(config)
-    exit(0)
+    #test_model_performance(config)
+    #exit(0)
 
     # train onet in low_snr 0-2.
     log_file = os.path.join(config.out_root, "%s_%s.log" % (config.model_name, datehour_mark))
