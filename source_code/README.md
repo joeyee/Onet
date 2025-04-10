@@ -5,7 +5,6 @@
 2. [File Structure](#file-structure)
 3. [Dependencies and Setup](#dependencies-and-setup)
 4. [Training Guide](#training-guide)
-6. [Pre-processing Guide](#pre-processing-guide)
 
 ## Project Overview
 This project implements Onet (unsupervised semantic segmentation) for various scenarios including:
@@ -22,6 +21,7 @@ onet_github/
 ├── checkpoint/             # Saved model checkpoints
 │   ├── sim_clutter/       # Simulated clutter models
 │   └── nau_rain/          # NAU-Rain models
+│   └── zy3/          # zy3 models
 ├── dataloader/            # Data loading utilities
 │   ├── nau_rain_20230523.py      # NAU-Rain dataset loader
 │   ├── simbg4onet_20230209.py    # Simulated background loader
@@ -31,6 +31,8 @@ onet_github/
 ├── Train_Onet_on_zy3_20240606.py    # Training for ZY3 datasets
 ├── exp_nau_rain_20240513.py    # NAU-Rain experiment
 ├── utils_20231218.py      # Utility functions
+├── haze_remove_20240313.py      # hazing remove
+├── test_pre_processing_on_zy3_testset_20240607.py  # test pre-processing method for zy3 
 └── README.md              # Project documentation
 ```
 
