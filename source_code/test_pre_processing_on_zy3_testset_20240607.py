@@ -551,7 +551,6 @@ if __name__=='__main__':
     #prepare_train_thumbnails()
     zy3_divided_test_ids_dict = uti_zy3_test.get_divided_test_list()
     choose_test_preprocess(config, onet) #saving test_image_label_dict with the best pre-processing option.
-    #classified_preprocess(config, onet, zy3_divided_test_ids_dict) # determine the pre-processing option for each test image.
     #exit(0)
 
     pre_process_zy3_test_image_label_dict = torch.load('/root/datasets/thumbnail224/zy3_thumbnail224_test_label_dict50_bestACC_preprocess.pt')
