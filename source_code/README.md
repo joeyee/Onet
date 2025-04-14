@@ -83,7 +83,7 @@ This script trains ONET on ZY3 remote sensing images with:
 - 224x224x3 image shape
 - Output saved in '/root/onet_github/checkpoint/zy3'
 
-Please note that Onet can be trained in only 11 epoches (less than 5 minutes) for zy3 with OA(0.8833) and miou(0.7218). Then we can using pre-processing techniques to improve the contrast and enhance the thin clouds for the remote sensing images. After that using the 11-epoch trained onet model, the OA reaches 0.9254 and miou raises to 0.7958. We believe the Onet structure enables the fast training ability and it has the potential to be an efficient label tool for marking the regions with strong intensities. 
+Please note that Onet can be trained in only 11 epoches (less than 5 minutes) for zy3 with OA(0.8833) and miou(0.7218). Then we can using pre-processing techniques to improve the contrast and enhance the thin clouds for the remote sensing images (please check test_pre_processing_on_zy3_testset_20240607.py). After that using the 11-epoch trained onet model, the OA reaches 0.9254 and miou raises to 0.7958. We believe the Onet structure enables the fast training ability and it has the potential to be an efficient label tool for marking the regions with strong intensities. 
 
 
 ### 3. Training ONET for NAU-Rain Case
