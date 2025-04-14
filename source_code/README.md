@@ -39,6 +39,7 @@ onet_github/
 ## Dependencies and Setup
 
 ### Required Datasets and Paths
+Download link for the datasets[https://pan.baidu.com/s/1G8Wq4HCYaYVXuYnNE0uT7w?pwd=dlmu]
 1. Simulated Rayleigh Clutter Dataset:
    - Path: `/datasets/sim_background/`
    - Main data file: `rayleigh_2sigma.pt`
@@ -47,12 +48,12 @@ onet_github/
    - Generated using: `Rayleigh_bg_Gaussian_EOT_generator_20230208.py`
 
 2. ZY3 Dataset:
-   - Path: `/datasets/zy3/`
+   - Path: `/datasets/zy3-thumbnails224/`
    - Contains: Remote sensing images
    - Image size: 224x224x3
    - Data Files: 'zy3_thumbnail224_test_label_dict50_v2.pt', 'zy3_thumbnail224_train_dict250_v2.pt' for 1st round training onet.
    - load the source files of zy3 in '/test-imgs' and '/test_label_50_255' and using 'test_pre_processing_on_zy3_testset_20240607.py' to generate 'zy3_thumbnail224_test_label_dict50_bestACC_preprocess.pt' which is more contrastive for onet inferencing.
-   - The original dataset is used in the following papers:
+   - The original dataset (zy3-datasets-source) is used in the following papers:
    [1]J. Guo, J. Yang, H. Yue, X. Liu and K. Li, "Unsupervised Domain-Invariant Feature Learning for Cloud Detection of Remote Sensing Images," in IEEE Transactions on Geoscience and Remote Sensing, vol. 60, pp. 1-15, 2022
    [2]J. Guo, J. Yang, H. Yue and K. Li, "Unsupervised Domain Adaptation for Cloud Detection Based on Grouped Features Alignment and Entropy Minimization," in IEEE Transactions on Geoscience and Remote Sensing, vol. 60, pp. 1-13, 2022
    - For using zy3 in Onet, we shrink the original zy3 into 224x224x3 thumbnails, some image pre-processing (histogram equalization, contrast enhancement) are conducted for better contrast. Onet can are trained in the small thumbnail data files in a few epochs.
