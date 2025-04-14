@@ -40,27 +40,27 @@ onet_github/
 
 ### Required Datasets and Paths
 1. Simulated Rayleigh Clutter Dataset:
-   - Path: `/root/datasets/sim_background/`
+   - Path: `/datasets/sim_background/`
    - Main data file: `rayleigh_2sigma.pt`
    - Contains: Generated clutter data with 11 SNR levels from 0 to 10.
    - Each SNR level has 150 images (total 1650 images)
    - Generated using: `Rayleigh_bg_Gaussian_EOT_generator_20230208.py`
 
 2. ZY3 Dataset:
-   - Path: `/root/datasets/zy3/`
+   - Path: `/datasets/zy3/`
    - Contains: Remote sensing images
    - Image size: 224x224x3
    - Data Files: 'zy3_thumbnail224_test_label_dict50_v2.pt', 'zy3_thumbnail224_train_dict250_v2.pt' for 1st round training onet.
    - load the source files of zy3 in '/test-imgs' and '/test_label_50_255' and using 'test_pre_processing_on_zy3_testset_20240607.py' to generate 'zy3_thumbnail224_test_label_dict50_bestACC_preprocess.pt' which is more contrastive for onet inferencing.
 
 3. NAU-Rain Dataset:
-   - Path: `/root/datasets/nau_rain/`
+   - Path: `/datasets/nau_rain/`
    - Main data file: `naurain_20200819144753_10_target_img_label_dict.pt`
    - Contains: Rain-affected images with labels
    - Image size: 200x200
 
 ### Output Directories
-- Model files: '/root/onet_github/checkpoint/' for sim_clutter, zy3 and nau_rain
+- Model files: '/onet_project_dir/checkpoint/' for sim_clutter, zy3 and nau_rain
 
 
 ## Training Guide
@@ -72,7 +72,7 @@ python Train_Onet_on_simclutter_20250407.py
 This script trains ONET on simulated Rayleigh distributed clutter with the following features:
 - Uses `rayleigh_2sigma.pt` dataset
 - using only low snr (from 0 to 2) frames 
-- Outputs saved in `/root/onet_github/checkpoint/sim_clutter/`
+- Outputs saved in `/onet_project_dir/checkpoint/sim_clutter/`
 
 ### 2. Training ONET for ZY3 Datasets
 ```bash
@@ -81,7 +81,7 @@ python Train_Onet_on_zy3_20240606.py
 This script trains ONET on ZY3 remote sensing images with:
 - 11 epochs training
 - 224x224x3 image shape
-- Output saved in '/root/onet_github/checkpoint/zy3'
+- Output saved in '/onet_project_dir/checkpoint/zy3'
 
 Please note that Onet can be trained in only 11 epoches (less than 5 minutes) for zy3 with OA(0.8833) and miou(0.7218). Then we can using pre-processing techniques to improve the contrast and enhance the thin clouds for the remote sensing images (please check test_pre_processing_on_zy3_testset_20240607.py). After that using the 11-epoch trained onet model, the OA reaches 0.9254 and miou raises to 0.7958. We believe the Onet structure enables the fast training ability and it has the potential to be an efficient label tool for marking the regions with strong intensities. 
 
@@ -96,7 +96,7 @@ This evaluates the model's performance on NAU-Rain dataset.
 - 200x200 image size
 - target segmentation in rain clutter
 - Uses `naurain_20200819144753_10_target_img_label_dict.pt` dataset
-- Output saved in '/root/onet_github/checkpoint/nau_rain'
+- Output saved in '/onet_project_dir/checkpoint/nau_rain'
 
 
 ## Tips and Best Practices
