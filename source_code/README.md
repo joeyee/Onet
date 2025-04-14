@@ -7,7 +7,7 @@
 4. [Training Guide](#training-guide)
 
 ## Project Overview
-This project implements Onet (unsupervised semantic segmentation) for various scenarios including:
+This project implements Onet (unsupervised semantic segmentation) for 3 scenarios including:
 - Simulated Rayleigh distributed clutter
 - NAU-Rain case
 - ZY3 remote sensing datasets
@@ -37,6 +37,9 @@ onet_github/
 ```
 
 ## Dependencies and Setup
+
+### Required packages
+pip install -r requirements.txt
 
 ### Required Datasets and Paths
 Download link for the [datasets and pretrained model](https://pan.baidu.com/s/1G8Wq4HCYaYVXuYnNE0uT7w?pwd=dlmu)
