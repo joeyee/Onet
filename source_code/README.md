@@ -39,7 +39,7 @@ onet_github/
 ## Dependencies and Setup
 
 ### Required Datasets and Paths
-Download link for the [datasets](https://pan.baidu.com/s/1G8Wq4HCYaYVXuYnNE0uT7w?pwd=dlmu)
+Download link for the [datasets and pretrained model](https://pan.baidu.com/s/1G8Wq4HCYaYVXuYnNE0uT7w?pwd=dlmu)
 1. Simulated Rayleigh Clutter Dataset:
    - Path: `/datasets/sim_background/`
    - Main data file: `rayleigh_2sigma.pt`
