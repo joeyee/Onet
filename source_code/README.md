@@ -52,6 +52,10 @@ onet_github/
    - Image size: 224x224x3
    - Data Files: 'zy3_thumbnail224_test_label_dict50_v2.pt', 'zy3_thumbnail224_train_dict250_v2.pt' for 1st round training onet.
    - load the source files of zy3 in '/test-imgs' and '/test_label_50_255' and using 'test_pre_processing_on_zy3_testset_20240607.py' to generate 'zy3_thumbnail224_test_label_dict50_bestACC_preprocess.pt' which is more contrastive for onet inferencing.
+   - The original dataset is used in the following papers:
+   [1]J. Guo, J. Yang, H. Yue, X. Liu and K. Li, "Unsupervised Domain-Invariant Feature Learning for Cloud Detection of Remote Sensing Images," in IEEE Transactions on Geoscience and Remote Sensing, vol. 60, pp. 1-15, 2022
+   [2]J. Guo, J. Yang, H. Yue and K. Li, "Unsupervised Domain Adaptation for Cloud Detection Based on Grouped Features Alignment and Entropy Minimization," in IEEE Transactions on Geoscience and Remote Sensing, vol. 60, pp. 1-13, 2022
+   - For using zy3 in Onet, we shrink the original zy3 into 224x224x3 thumbnails, some image pre-processing (histogram equalization, contrast enhancement) are conducted for better contrast. Onet can are trained in the small thumbnail data files in a few epochs.
 
 3. NAU-Rain Dataset:
    - Path: `/datasets/nau_rain/`
@@ -84,6 +88,7 @@ This script trains ONET on ZY3 remote sensing images with:
 - Output saved in '/onet_project_dir/checkpoint/zy3'
 
 Please note that Onet can be trained in only 11 epoches (less than 5 minutes) for zy3 with OA(0.8833) and miou(0.7218). Then we can using pre-processing techniques to improve the contrast and enhance the thin clouds for the remote sensing images (please check test_pre_processing_on_zy3_testset_20240607.py). After that using the 11-epoch trained onet model, the OA reaches 0.9254 and miou raises to 0.7958. We believe the Onet structure enables the fast training ability and it has the potential to be an efficient label tool for marking the regions with strong intensities. 
+
 
 
 ### 3. Training ONET for NAU-Rain Case
