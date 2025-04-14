@@ -1,7 +1,7 @@
 # Onet: Twin U-Net Architecture for Unsupervised Binary Semantic Segmentation in Radar and Remote Sensing Images
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)  
 This repository contains the source code, data, and documentation for **Onet**, a novel **O-shaped Twin U-Net architecture** designed for unsupervised binary semantic segmentation in radar and remote sensing images.
-[Source paper](https://github.com/joeyee/Onet/blob/main/TIP2022_Onet_2025.pdf) (preprint version) and the [supplementary materials](https://github.com/joeyee/Onet/blob/main/Onet_Supplementary_Materials.pdf) can be downloaded from this repository.
+[Source paper, onet2025](https://github.com/joeyee/Onet/blob/main/TIP2022_Onet_2025.pdf) (preprint version) and the [supplementary materials](https://github.com/joeyee/Onet/blob/main/Onet_Supplementary_Materials.pdf) can be downloaded from this repository.
 
 
 ## Introduction
@@ -31,11 +31,16 @@ Here are some reulsts demonstrating Onet's performance in **taret segmenation** 
 
 [[infoseg2021]](https://arxiv.org/abs/2110.03477) R. Harb and P. Kno ̈belreiter, “Infoseg: Unsupervised semantic image segmentation with mutual information maximization,” in German Conference on Pattern Recognition 2021.
 
+[onet2025] Y. Zhou, H. Su, T. Wang and Q. Hu, "Onet: Twin U-Net Architecture for Unsupervised Binary Semantic Segmentation in Radar and Remote Sensing Images," in IEEE Transactions on Image Processing, vol. 34, pp. 2161-2172, 2025
 ## Bibtex
+
 ```bibtex
-@ARTICLE{ZhouTIP2025, 
-author={Yi Zhou and Hang Su and Tian Wang and Qing Hu, 
-journal={IEEE Transactions on Signal Processing}, 
-title={Onet: Twin U-Net Architecture for Unsupervised Binary Semantic Segmentation in Radar and Remote Sensing Images}, 
-year={2025},
+@ARTICLE{ZhouTIP2025,
+  author={Zhou, Yi and Su, Hang and Wang, Tian and Hu, Qing},
+  journal={IEEE Transactions on Image Processing}, 
+  title={Onet: Twin U-Net Architecture for Unsupervised Binary Semantic Segmentation in Radar and Remote Sensing Images}, 
+  year={2025},
+  volume={34},
+  number={},
+  pages={2161-2172},
 }
